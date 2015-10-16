@@ -30,6 +30,10 @@
 @property BOOL shouldHideBadgeAtZero;
 // Badge has a bounce animation when value changes
 @property BOOL shouldAnimateBadge;
+// Custom corner radius
+@property (nonatomic) CGFloat badgeCornerRadius;
+// Should use custom corner radius
+@property BOOL shouldUseCustomCornerRadius;
 
 - (BBBadgeBarButtonItem *)initWithCustomUIButton:(UIButton *)customButton;
 
