@@ -24,6 +24,8 @@
     self = [self initWithCustomView:customButton];
     if (self) {
         [self initializer];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateBadge) name:@"notifyReceivedRemoteNotification" object:nil];
+        
     }
 
     return self;
@@ -56,6 +58,10 @@
     self.badge.textColor        = self.badgeTextColor;
     self.badge.backgroundColor  = self.badgeBGColor;
     self.badge.font             = self.badgeFont;
+}
+
+- (void)updateBadge {
+    self.badgeValue = [NSString stringWithFormat:@"%ld", [[UIApplication sharedApplication] applicationIconBadgeNumber]];
 }
 
 - (void)updateBadgeFrame
